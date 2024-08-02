@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 const Header = () => {
   return (
     <>
-      <div className='flex flex-row justify-between content-center bg-[#6f4827] h-[80px]'>
+      <div className='flex flex-row justify-between content-center bg-[#201a15] h-[80px]'>
         <div className='flex'>
           <Link to='/'>
             <div className='gap-3 m-3 text-xl text-white font-bold my-[20px]'>
@@ -14,9 +15,7 @@ const Header = () => {
 
         <div className='my-[15px] gap-3 m-3'>
           <Link to='/addCoffee'>
-            <button className='bg-green-800 hover:bg-green-950 text-white font-bold py-2 px-4 rounded-full'>
-              Add Coffee
-            </button>
+            <Button variant='contained'>Add Coffee</Button>;
           </Link>
         </div>
       </div>

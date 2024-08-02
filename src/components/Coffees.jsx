@@ -2,9 +2,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCoffees, deleteCoffee } from '../features/coffeeSlice';
 import Header from './Header';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import CoffeeCard from './CoffeeCard';
 
 const Coffees = () => {
+  const style = {
+    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 150, 0.3)), url(images/shop.jpg)`,
+    height: '100vh', // Add this if you want to fill the viewport height
+    backgroundSize: 'cover', // Adjust background image sizing
+    backgroundPosition: 'center', // Adjust background image position
+    backgroundRepeat: 'no-repeat', // Prevent the background image from repeating
+  };
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,38 +30,15 @@ const Coffees = () => {
   console.log('load coffees data', coffeeData);
 
   return (
-    <div>
+    <div className='min-h-screen' style={style}>
       <Header />
-      <div className='flex flex-wrap justify-center gap-3 bg-[#9c6f44] min-h-screen'>
+      <div className='flex flex-wrap justify-center my-3'>
         {coffeeData.map((coffee) => (
-          <div
+          <CoffeeCard
             key={coffee._id}
-            className='shadow-xl bg-green-900 w-[30%] transition-all my-4 text-center rounded-lg items-center justify-center flex flex-col p-4'
-          >
-            <p className='text-3xl font-bold mb-4 text-white'>{coffee.name}</p>
-            <img
-              src={coffee.image}
-              className='rounded'
-              alt='coffee'
-              width='50%'
-            />
-            <div className='p-4'>
-              <p className='text-3xl font-bold text-white'>${coffee.price}</p>
-              <div className='flex gap-3 justify-between p-4'>
-                <Link to={`/editCoffee/${coffee._id}`}>
-                  <button className='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full'>
-                    Edit
-                  </button>
-                </Link>
-                <button
-                  onClick={() => handleDeleteCoffee(coffee._id)}
-                  className='bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-full'
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
+            coffee={coffee}
+            handleDeleteCoffee={handleDeleteCoffee}
+          />
         ))}
       </div>
     </div>
