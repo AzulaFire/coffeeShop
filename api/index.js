@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import Product from './models/product.model.js'; // Ensure this file is using ESM
+import Product from '../models/product.model.js'; // Ensure this file is using ESM
 
 const app = express();
 
