@@ -3,9 +3,25 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const CoffeeCard = ({ coffee, handleDeleteCoffee }) => {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#FF5733',
+        // light: will be calculated from palette.primary.main,
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      },
+      secondary: {
+        main: '#c62828',
+      },
+    },
+  });
+
   const style = {
     background: 'rgba(255, 85, 85, 0.04)',
     borderRadius: '16px',
@@ -18,7 +34,7 @@ const CoffeeCard = ({ coffee, handleDeleteCoffee }) => {
   return (
     <Card sx={{ maxWidth: 300 }} style={style}>
       <CardHeader
-        className='text-center text-white text-2xl font-bold'
+        className='text-center font-yanone text-white text-2xl font-bold bg-[#016241]'
         title={coffee.name}
       />
       <CardMedia
@@ -28,21 +44,22 @@ const CoffeeCard = ({ coffee, handleDeleteCoffee }) => {
         alt='Delicious coffee'
       />
       <CardContent>
-        <div className='text-center text-white text-2xl font-bold'>
+        <div className='text-center font-yanone text-white text-3xl font-bold'>
           ${coffee.price}
         </div>
         <div className='flex gap-3 justify-between p-4'>
-          <Link to={`/editCoffee/${coffee._id}`}>
-            <button className='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full'>
-              Edit
-            </button>
-          </Link>
-          <button
-            onClick={() => handleDeleteCoffee(coffee._id)}
-            className='bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-full'
-          >
-            Delete
-          </button>
+          <ThemeProvider theme={theme}>
+            <Link to={`/editCoffee/${coffee._id}`}>
+              <Button variant='contained'>Edit</Button>
+            </Link>
+            <Button
+              onClick={() => handleDeleteCoffee(coffee._id)}
+              variant='contained'
+              color='secondary'
+            >
+              Delete
+            </Button>
+          </ThemeProvider>
         </div>
       </CardContent>
     </Card>

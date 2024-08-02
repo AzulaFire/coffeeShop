@@ -6,8 +6,8 @@ import CoffeeCard from './CoffeeCard';
 
 const Coffees = () => {
   const style = {
-    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 150, 0.3)), url(images/shop.jpg)`,
-    height: '100vh', // Add this if you want to fill the viewport height
+    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0,0,0, 0.7)), url(images/shop.jpg)`,
+    height: '100%', // Add this if you want to fill the viewport height
     backgroundSize: 'cover', // Adjust background image sizing
     backgroundPosition: 'center', // Adjust background image position
     backgroundRepeat: 'no-repeat', // Prevent the background image from repeating
@@ -30,9 +30,9 @@ const Coffees = () => {
   console.log('load coffees data', coffeeData);
 
   return (
-    <div className='min-h-screen' style={style}>
+    <div className='min-h-screen bg-black' style={style}>
       <Header />
-      <div className='flex flex-wrap justify-center my-3'>
+      <div className='flex flex-wrap justify-center my-7 gap-4'>
         {coffeeData.map((coffee) => (
           <CoffeeCard
             key={coffee._id}
@@ -41,6 +41,7 @@ const Coffees = () => {
           />
         ))}
       </div>
+      <div>THIS IS THE FOOTER</div>
     </div>
   );
 };
