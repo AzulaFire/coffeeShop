@@ -3,7 +3,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const getCoffees = createAsyncThunk(
   'getCoffees',
   async (args, { rejectWithValue }) => {
-    const response = await fetch('http://localhost:3000/api/products');
+    const response = await fetch(
+      'https://coffee-shop-iota-mocha.vercel.app/api/products'
+    );
 
     try {
       const result = await response.json();
@@ -17,7 +19,9 @@ export const getCoffees = createAsyncThunk(
 export const getCoffee = createAsyncThunk(
   'getCoffee',
   async (id, { rejectWithValue }) => {
-    const response = await fetch(`http://localhost:3000/api/products/${id}`);
+    const response = await fetch(
+      `https://coffee-shop-iota-mocha.vercel.app/api/products/${id}`
+    );
     try {
       const result = await response.json();
       return result;
@@ -30,15 +34,18 @@ export const getCoffee = createAsyncThunk(
 export const addCoffee = createAsyncThunk(
   'addCoffee',
   async (data, { rejectWithValue }) => {
-    const response = await fetch('http://localhost:3000/api/products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'X-Requested-With',
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      'https://coffee-shop-iota-mocha.vercel.app/api/products',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'X-Requested-With',
+        },
+        body: JSON.stringify(data),
+      }
+    );
     try {
       const result = await response.json();
       return result;
@@ -52,7 +59,7 @@ export const updateCoffee = createAsyncThunk(
   'updateCoffee',
   async (data, { rejectWithValue }) => {
     const response = await fetch(
-      `http://localhost:3000/api/products/${data.id}`,
+      `https://coffee-shop-iota-mocha.vercel.app/api/products/${data.id}`,
       {
         method: 'PUT',
         headers: {
@@ -74,9 +81,12 @@ export const updateCoffee = createAsyncThunk(
 export const deleteCoffee = createAsyncThunk(
   'deleteCoffee',
   async (id, { rejectWithValue }) => {
-    const response = await fetch(`http://localhost:3000/api/products/${id}`, {
-      method: 'DELETE',
-    });
+    const response = await fetch(
+      `https://coffee-shop-iota-mocha.vercel.app/api/products/${id}`,
+      {
+        method: 'DELETE',
+      }
+    );
     try {
       const result = await response.json();
       return result;
