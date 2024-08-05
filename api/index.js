@@ -1,7 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import Product from '../models/product.model.js'; // Ensure this file is using ESM
+import Product from './models/product.model.js'; // Adjust path if needed
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+// eslint-disable-next-line no-undef
+const apiUrl = process.env.VITE_API_URL;
 
 const app = express();
 
@@ -70,9 +76,7 @@ app.get('/', (req, res) => {
 });
 
 mongoose
-  .connect(
-    'mongodb+srv://technoflow:g%40m3R4li13@cluster0.0urzmhq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&dbName=CoffeeShop'
-  )
+  .connect(apiUrl)
   .then(() => {
     console.log('DB Connected!');
     app.listen(3000, () => {
