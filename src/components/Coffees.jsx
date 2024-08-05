@@ -3,6 +3,12 @@ import { getCoffees, deleteCoffee } from '../features/coffeeSlice';
 import Header from './Header';
 import { useEffect } from 'react';
 import CoffeeCard from './CoffeeCard';
+import Footer from './Footer';
+import Hero from './Hero';
+import Navigation from './Navigation';
+import About from './About';
+import Apple from './Apple';
+import Services from './Services';
 
 const Coffees = () => {
   const style = {
@@ -31,7 +37,12 @@ const Coffees = () => {
 
   return (
     <div className='min-h-screen bg-black' style={style}>
+      <Navigation />
+      <Hero />
+      <About />
+      <Services />
       <Header />
+
       <div className='flex flex-wrap justify-center my-7 gap-4'>
         {coffeeData.map((coffee) => (
           <CoffeeCard
@@ -41,7 +52,12 @@ const Coffees = () => {
           />
         ))}
       </div>
-      <div>THIS IS THE FOOTER</div>
+      <div>
+        <Apple />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

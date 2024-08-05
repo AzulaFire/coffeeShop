@@ -5,6 +5,14 @@ import { updateCoffee } from '../features/coffeeSlice';
 import Header from './Header';
 
 const EditCoffeeDetail = () => {
+  const style = {
+    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0,0,0, 0.7)), url(images/shop.jpg)`,
+    height: '100%', // Add this if you want to fill the viewport height
+    backgroundSize: 'cover', // Adjust background image sizing
+    backgroundPosition: 'center', // Adjust background image position
+    backgroundRepeat: 'no-repeat', // Prevent the background image from repeating
+  };
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,9 +46,9 @@ const EditCoffeeDetail = () => {
   };
 
   return (
-    <div>
+    <div style={style} className='min-h-screen bg-black'>
       <Header />
-      <div className='bg-green-900 flex pt-5 justify-center min-h-screen'>
+      <div className='flex pt-5 justify-center'>
         <div className='w-full max-w-lg p-8 bg-white rounded-lg shadow-lg'>
           <h2 className='text-2xl font-semibold text-gray-800 mb-2'>
             Edit Coffee

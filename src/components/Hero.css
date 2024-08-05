@@ -1,0 +1,29 @@
+/* Hero.css */
+.hero {
+  position: relative;
+  background: linear-gradient(0deg, rgba(24, 23, 23, 0.7), rgba(0, 0, 0, 0.3)),
+    url(images/main2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-content {
+  text-align: center;
+  border-radius: 25px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
