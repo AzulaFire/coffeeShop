@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AddCoffee = () => {
   const style = {
-    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0,0,0, 0.7)), url(images/shop.jpg)`,
+    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0,0,0, 0.7)), url('/images/shop.jpg')`,
     height: '100%', // Add this if you want to fill the viewport height
     backgroundSize: 'cover', // Adjust background image sizing
     backgroundPosition: 'center', // Adjust background image position
