@@ -5,7 +5,7 @@
     url('/images/main2.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 1001%;
   display: flex;
   align-items: center;
   justify-content: center;
