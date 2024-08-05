@@ -1,12 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import Product from './models/product.model.js'; // Adjust path if needed
+import Product from '../models/product.model.js'; // Ensure this file is using ESM
+
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// eslint-disable-next-line no-undef
 const apiUrl = process.env.VITE_API_URL;
 
 const app = express();
