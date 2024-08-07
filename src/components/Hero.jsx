@@ -30,7 +30,7 @@ const Hero = () => {
             marginBottom: '80px',
           }}
         >
-          Go To MENU
+          <a href='#Menu'>Go To MENU</a>
         </Button>
       </div>
     </div>
